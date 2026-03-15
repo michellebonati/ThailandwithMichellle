@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thailand with Michelle · Dec 26 – Jan 9, 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C9984A;--gold-l:#EDD9A3;--deep:#1A1208;--warm:#F7F2EA;
+  --sage:#7A8C6E;--muted:#7A6E5F;--text:#2C2015;--border:rgba(201,152,74,0.18);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm);color:var(--text);overflow-x:hidden}
+
+/* LANG TOGGLE */
+.lang-bar{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:flex-end;padding:10px 32px;background:rgba(247,242,234,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.lang-btn{background:none;border:1px solid var(--border);padding:5px 14px;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;color:var(--muted);transition:all .2s}
+.lang-btn.active{background:var(--deep);color:var(--gold-l);border-color:var(--deep)}
+.lang-btn:first-child{border-radius:2px 0 0 2px;border-right:none}
+.lang-btn:last-child{border-radius:0 2px 2px 0}
+
+/* NAV */
+nav{position:fixed;top:41px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;background:rgba(247,242,234,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--deep)}
+.nav-logo em{color:var(--gold);font-style:italic}
+nav ul{list-style:none;display:flex;gap:28px}
+nav a{text-decoration:none;font-size:11px;font-weight:400;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;transition:color .2s;cursor:pointer}
+nav a:hover{color:var(--gold)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:160px 48px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:var(--deep);z-index:0}
+.hero-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);background-size:20px 20px}
+.hero-content{position:relative;z-index:2}
+.hero-dates{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;justify-content:center;gap:16px}
+.hero-dates::before,.hero-dates::after{content:'';display:block;width:40px;height:1px;background:var(--gold);opacity:0.5}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,88px);font-weight:300;line-height:1.05;color:var(--gold-l);margin-bottom:24px}
+h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;line-height:1.8;color:#8A7F6F;max-width:520px;margin:0 auto 48px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:56px}
+.chip{padding:8px 18px;border:1px solid rgba(201,152,74,0.25);border-radius:20px;font-size:12px;color:var(--gold-l);letter-spacing:0.06em}
+.scroll-hint{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#5A4F3F;display:flex;align-items:center;gap:10px}
+.scroll-hint::after{content:'↓';font-size:16px}
+
+/* SECTIONS */
+section{padding:100px 80px}
+.section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.section-label::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,52px);font-weight:300;line-height:1.12;color:var(--deep);margin-bottom:40px}
+h2 em{font-style:italic;color:var(--gold)}
+
+/* OVERVIEW CARDS */
+.overview{background:var(--warm)}
+.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:48px}
+.ov-card{background:var(--warm);padding:36px 32px;transition:background .2s}
+.ov-card:hover{background:#EFE8D8}
+.ov-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:8px}
+.ov-label{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em}
+
+/* ITINERARY */
+.itinerary{background:#F0E9DC}
+.timeline{margin-top:8px}
+.tl-item{display:grid;grid-template-columns:180px 1fr;gap:0;border-bottom:1px solid var(--border)}
+.tl-item:last-child{border-bottom:none}
+.tl-left{padding:32px 32px 32px 0;border-right:1px solid var(--border)}
+.tl-days{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.tl-city{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--deep);font-style:italic}
+.tl-right{padding:32px 0 32px 36px;display:flex;flex-direction:column;justify-content:center}
+.tl-title{font-size:14px;font-weight:500;color:var(--deep);margin-bottom:8px}
+.tl-desc{font-size:13px;line-height:1.75;color:var(--muted)}
+.tl-highlights{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.highlight{font-size:11px;padding:4px 12px;background:rgba(201,152,74,0.1);border:1px solid rgba(201,152,74,0.2);border-radius:12px;color:var(--gold);letter-spacing:0.05em}
+.tl-item:hover .tl-left{background:rgba(201,152,74,0.04)}
+
+/* NYE BANNER */
+.nye-banner{background:var(--deep);padding:80px;text-align:center}
+.nye-banner h2{color:var(--gold-l)}
+.nye-banner p{color:#7A6E5F;font-size:15px;max-width:480px;margin:0 auto;line-height:1.8}
+.nye-icon{font-size:48px;margin-bottom:24px}
+
+/* PRACTICAL */
+.practical{background:var(--warm)}
+.practical-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:8px}
+.prac-block{padding:40px;background:#F0E9DC;border-left:2px solid var(--gold)}
+.prac-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--deep);margin-bottom:20px;font-style:italic}
+.prac-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.prac-list li{font-size:13px;line-height:1.65;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+.prac-list li::before{content:'—';color:var(--gold);flex-shrink:0}
+
+/* PACKING */
+.packing{background:#F0E9DC}
+.pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:48px}
+.pack-cat{background:#F0E9DC;padding:36px 32px;transition:background .2s}
+.pack-cat:hover{background:#E8DDD0}
+.pack-cat-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--deep);margin-bottom:16px;font-style:italic}
+.pack-items{list-style:none;display:flex;flex-direction:column;gap:8px}
+.pack-items li{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
+.pack-items li::before{content:'·';color:var(--gold);flex-shrink:0;font-size:18px;line-height:1}
+
+/* PHOTO GALLERY */
+.photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin:48px 0 0}
+.photo-card{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.photo-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;filter:brightness(0.88)}
+.photo-card:hover img{transform:scale(1.05);filter:brightness(1)}
+.photo-card-label{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(transparent,rgba(26,18,8,0.85));font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--gold-l);font-style:italic}
+
+/* CALENDAR */
+.calendar-section{background:var(--deep);padding:100px 80px}
+.calendar-section h2{color:var(--gold-l)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:rgba(201,152,74,0.15);margin-top:48px}
+.cal-header{background:rgba(201,152,74,0.08);padding:10px 0;text-align:center;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold)}
+.cal-day{background:var(--deep);padding:10px 12px;min-height:80px;position:relative;transition:background .2s}
+.cal-day:hover{background:#231508}
+.cal-day.empty{background:rgba(0,0,0,0.2)}
+.cal-day.today{outline:1px solid var(--gold)}
+.cal-num{font-size:12px;color:#5A4F3F;margin-bottom:4px}
+.cal-event{font-size:10px;line-height:1.4;border-radius:3px;padding:3px 6px;margin-bottom:3px;font-weight:500}
+.cal-event.bkk{background:rgba(201,152,74,0.15);color:#C9984A}
+.cal-event.ayu{background:rgba(122,140,110,0.2);color:#9AB08A}
+.cal-event.cnx{background:rgba(196,131,106,0.2);color:#D4A088}
+.cal-event.pai{background:rgba(100,130,160,0.2);color:#88AACC}
+.cal-event.isl{background:rgba(80,160,130,0.2);color:#60C0A0}
+.cal-event.rai{background:rgba(180,100,160,0.2);color:#D088C0}
+.cal-event.fly{background:rgba(201,152,74,0.08);color:#7A6E5F;font-style:italic}
+.cal-month-label{grid-column:1/-1;background:rgba(201,152,74,0.06);padding:14px 20px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold-l);font-style:italic}
+.cal-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.cal-legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:#7A6E5F}
+.cal-legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+/* COSTS */
+.costs{background:var(--warm)}
+.costs-table{width:100%;border-collapse:collapse;margin-top:48px;font-size:14px}
+.costs-table th{text-align:left;padding:14px 20px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--border);font-weight:400}
+.costs-table td{padding:14px 20px;border-bottom:1px solid var(--border);color:var(--text)}
+.costs-table tr:last-child td{border-bottom:none;font-weight:500;color:var(--deep)}
+.costs-table .amt{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold)}
+.costs-table tr:last-child .amt{color:var(--deep)}
+.costs-note{font-size:12px;color:var(--muted);margin-top:20px;line-height:1.7}
+
+/* FOOTER */
+footer{padding:40px 80px;background:var(--deep);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold);font-style:italic}
+footer p{font-size:12px;color:#4A3F30}
+
+/* LANG */
+[data-it],[data-en]{display:none}
+body.lang-it [data-it]{display:block}
+body.lang-en [data-it]{display:none}
+body.lang-it [data-en]{display:none}
+body.lang-en [data-en]{display:block}
+body.lang-it span[data-it]{display:inline}
+body.lang-en span[data-en]{display:inline}
+body.lang-it span[data-en]{display:none}
+body.lang-en span[data-it]{display:none}
+
+@media(max-width:700px){
+  nav ul{display:none}
+  section{padding:72px 28px}
+  .overview-grid,.pack-grid{grid-template-columns:1fr}
+  .practical-grid{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:1fr}
+  .tl-left{border-right:none;border-bottom:1px solid var(--border);padding:20px 0}
+  .tl-right{padding:20px 0}
+  .nye-banner{padding:60px 28px}
+  footer{flex-direction:column;text-align:center}
+  .lang-bar{padding:10px 20px}
+  nav{padding:16px 24px;top:41px}
+}
+</style>
+</head>
+<body class="lang-it">
+
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('it')">🇮🇹 IT</button>
+  <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
+</div>
+
+<nav>
+  <div class="nav-logo">Thailand with <em>Michelle</em></div>
+  <ul>
+    <li><a onclick="document.getElementById('itinerary').scrollIntoView({behavior:'smooth'})"><span data-it>Itinerario</span><span data-en>Itinerary</span></a></li>
+    <li><a onclick="document.getElementById('practical').scrollIntoView({behavior:'smooth'})"><span data-it>Info pratiche</span><span data-en>Practical info</span></a></li>
+    <li><a onclick="document.getElementById('packing').scrollIntoView({behavior:'smooth'})"><span data-it>Cosa portare</span><span data-en>Packing list</span></a></li>
+    <li><a onclick="document.getElementById('costs').scrollIntoView({behavior:'smooth'})"><span data-it>Costi</span><span data-en>Costs</span></a></li>
+    <li><a onclick="document.getElementById('calendar').scrollIntoView({behavior:'smooth'})"><span data-it>Calendario</span><span data-en>Calendar</span></a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-dates">26 Dicembre 2026 · 9 Gennaio 2027</div>
+    <h1>Thailand<br>with <em>Michelle</em></h1>
+    <p class="hero-sub">
+      <span data-it>Un viaggio tra amici, guidati da chi conosce la Thailandia dall'infanzia. 15 notti, stagione secca, Capodanno sull'isola.</span>
+      <span data-en>A trip among friends, guided by someone who has known Thailand since childhood. 15 nights, dry season, New Year's Eve on the island.</span>
+    </p>
+    <div class="hero-chips">
+      <div class="chip">🏙 Bangkok</div>
+      <div class="chip">🛕 Ayutthaya</div>
+      <div class="chip">🌿 Chiang Mai</div>
+      <div class="chip">⛰ Pai</div>
+      <div class="chip">🏝 Koh Yao Noi</div>
+      <div class="chip">🌊 Koh Phi Phi</div>
+      <div class="chip">🧗 Railay</div>
+    </div>
+    <div class="scroll-hint"><span data-it>Scorri per scoprire</span><span data-en>Scroll to explore</span></div>
+  </div>
+</section>
+
+<section class="overview">
+  <div class="section-label"><span data-it>Il viaggio</span><span data-en>The trip</span></div>
+  <h2><span data-it>Tutto quello che <em>devi sapere</em></span><span data-en>Everything you <em>need to know</em></span></h2>
+  <div class="overview-grid">
+    <div class="ov-card"><div class="ov-num">14</div><div class="ov-label"><span data-it>Giorni in Thailandia</span><span data-en>Days in Thailand</span></div></div>
+    <div class="ov-card"><div class="ov-num">6</div><div class="ov-label"><span data-it>Destinazioni</span><span data-en>Destinations</span></div></div>
+    <div class="ov-card"><div class="ov-num">10</div><div class="ov-label"><span data-it>Persone max</span><span data-en>People max</span></div></div>
+    <div class="ov-card"><div class="ov-num">dic</div><div class="ov-label"><span data-it>Stagione secca — clima perfetto</span><span data-en>Dry season — perfect weather</span></div></div>
+    <div class="ov-card"><div class="ov-num">31</div><div class="ov-label"><span data-it>Capodanno sulle isole</span><span data-en>New Year's Eve on the islands</span></div></div>
+    <div class="ov-card"><div class="ov-num">24/7</div><div class="ov-label"><span data-it>Michelle come guida</span><span data-en>Michelle as your guide</span></div></div>
+  </div>
+</section>
+
+<section style="padding:0;background:var(--warm)">
+  <div class="photo-strip">
+    <div class="photo-card">
+      <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/12/70/2d/c9.jpg" alt="Bangkok" loading="lazy">
+      <div class="photo-card-label">Bangkok</div>
+    </div>
+    <div class="photo-card">
+      <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/27/2c/3c.jpg" alt="Ayutthaya" loading="lazy">
+      <div class="photo-card-label">Ayutthaya</div>
+    </div>
+    <div class="photo-card">
+      <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/7c/96/78.jpg" alt="Chiang Mai" loading="lazy">
+      <div class="photo-card-label">Chiang Mai</div>
+    </div>
+    <div class="photo-card">
+      <img src="https://cdn.pixabay.com/photo/2017/01/20/16/59/thailand-1995903_1280.jpg" alt="Pai" loading="lazy">
+      <div class="photo-card-label">Pai</div>
+    </div>
+    <div class="photo-card">
+      <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/09/c5/06/a8.jpg" alt="Koh Yao Noi" loading="lazy">
+      <div class="photo-card-label">Koh Yao Noi</div>
+    </div>
+    <div class="photo-card">
+      <img src="https://cdn.pixabay.com/photo/2016/01/19/15/59/phi-phi-islands-1149083_1280.jpg" alt="Koh Phi Phi" loading="lazy">
+      <div class="photo-card-label">Koh Phi Phi</div>
+    </div>
+    <div class="photo-card">
+      <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/39/a1/73.jpg" alt="Railay" loading="lazy">
+      <div class="photo-card-label">Railay</div>
+    </div>
+    <div class="photo-card" style="background:var(--deep);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--gold);font-style:italic">14</div>
+      <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)"><span data-it>giorni</span><span data-en>days</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="itinerary" class="itinerary">
+  <div class="section-label"><span data-it>Giorno per giorno</span><span data-en>Day by day</span></div>
+  <h2><span data-it>L'<em>itinerario</em></span><span data-en>The <em>itinerary</em></span></h2>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-days"><span data-it>Giorni</span><span data-en>Days</span> 1–2</div>
+        <div class="tl-city">Bangkok</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title"><span data-it>Arrivo e primi sapori</span><span data-en>Arrival & first flavours</span></div>
+        <div class="tl-desc">
+          <span data-it>Atterraggio a Suvarnabhumi, check-in in hotel boutique. Primo giro tra i canali e i mercati di Bangkok, street food autentico, tempio nascosto al tramonto, mercato notturno.</span>
+          <span data-en>Landing at Suvarnabhumi, check-in at boutique hotel. First stroll through Bangkok's canals and markets, authentic street food, hidden temple at sunset, night market.</span>
+        </div>
+        <div class="tl-highlights">
+          <span class="highlight">Street food</span>
+          <span class="highlight"><span data-it>Mercato notturno</span><span data-en>Night market</span></span>
+          <span class="highlight"><span data-it>Tempio nascosto</span><span data-en>Hidden temple</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-days"><span data-it>Giorno</span><span data-en>Day</span> 3</div>
+        <div class="tl-city">Ayutthaya</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title"><span data-it>Le rovine antiche</span><span data-en>Ancient ruins</span></div>
+        <div class="tl-desc">
+          <span data-it>Gita di un giorno in longtail boat tra le rovine dell'antica capitale del regno siamese. Si parte presto, prima del caldo e dei turisti.</span>
+          <span data-en>Day trip by longtail boat through the ruins of the ancient Siamese capital. We leave early, before the heat and the crowds.</span>
+        </div>
+        <div class="tl-highlights">
+          <span class="highlight">Longtail boat</span>
+          <span class="highlight">UNESCO</span>
+          <span class="highlight"><span data-it>Alba tra i templi</span><span data-en>Sunrise at the temples</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-days"><span data-it>Giorni</span><span data-en>Days</span> 4–5</div>
+        <div class="tl-city">Chiang Mai</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title"><span data-it>Il nord: elefanti e cucina</span><span data-en>The north: elephants & cooking</span></div>
+        <div class="tl-desc">
+          <span data-it>Volo interno da Bangkok. Santuario etico degli elefanti la mattina, cooking class a casa di una famiglia locale il pomeriggio. Mercato notturno di Chiang Mai la sera.</span>
+          <span data-en>Internal flight from Bangkok. Ethical elephant sanctuary in the morning, cooking class at a local family home in the afternoon. Chiang Mai night bazaar in the evening.</span>
+        </div>
+        <div class="tl-highlights">
+          <span class="highlight"><span data-it>Elefanti</span><span data-en>Elephants</span></span>
+          <span class="highlight">Cooking class</span>
+          <span class="highlight"><span data-it>Mercato notturno</span><span data-en>Night bazaar</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-days"><span data-it>Giorno</span><span data-en>Day</span> 6</div>
+        <div class="tl-city">Pai</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title"><span data-it>Montagne e sorgenti termali</span><span data-en>Mountains & hot springs</span></div>
+        <div class="tl-desc">
+          <span data-it>Tre ore di van tra le montagne del nord fino al villaggio di Pai. Paesaggio mozzafiato, sorgenti termali naturali, la notte più tranquilla del viaggio.</span>
+          <span data-en>Three hours by van through the northern mountains to the village of Pai. Breathtaking scenery, natural hot springs, the most peaceful night of the trip.</span>
+        </div>
+        <div class="tl-highlights">
+          <span class="highlight"><span data-it>Sorgenti termali</span><span data-en>Hot springs</span></span>
+          <span class="highlight"><span data-it>Montagne</span><span data-en>Mountains</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-days"><span data-it>Giorni</span><span data-en>Days</span> 7–11</div>
+        <div class="tl-city">Koh Yao Noi</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title"><span data-it>Capodanno sull'isola 🎆</span><span data-en>New Year's Eve on the island 🎆</span></div>
+        <div class="tl-desc">
+          <span data-it>Volo interno verso sud, poi barca per Koh Yao Noi. Isola tranquilla, spiagge vuote, snorkeling in acque cristalline. Una giornata in longtail boat per le Koh Phi Phi. Il 31 dicembre festeggiamo insieme sulla spiaggia.</span>
+          <span data-en>Internal flight south, then boat to Koh Yao Noi. Quiet island, empty beaches, snorkelling in crystal clear water. One day longtail trip to Koh Phi Phi. On December 31st we celebrate together on the beach.</span>
+        </div>
+        <div class="tl-highlights">
+          <span class="highlight">New Year's Eve 🥂</span>
+          <span class="highlight">Snorkeling</span>
+          <span class="highlight">Koh Phi Phi</span>
+          <span class="highlight"><span data-it>Spiagge segrete</span><span data-en>Secret beaches</span></span>
+          <span class="highlight">Longtail boat</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-days"><span data-it>Giorni</span><span data-en>Days</span> 12–13</div>
+        <div class="tl-city">Railay</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title"><span data-it>L'ultima spiaggia</span><span data-en>The last beach</span></div>
+        <div class="tl-desc">
+          <span data-it>Railay è raggiungibile solo in barca — scogliere calcaree, acqua verde, niente macchine. Cena di addio insieme, ultimo tramonto thailandese.</span>
+          <span data-en>Railay is only reachable by boat — limestone cliffs, green water, no cars. Farewell dinner together, last Thai sunset.</span>
+        </div>
+        <div class="tl-highlights">
+          <span class="highlight"><span data-it>Solo in barca</span><span data-en>Boat access only</span></span>
+          <span class="highlight"><span data-it>Scogliere calcaree</span><span data-en>Limestone cliffs</span></span>
+          <span class="highlight"><span data-it>Cena di addio</span><span data-en>Farewell dinner</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-days"><span data-it>Giorno</span><span data-en>Day</span> 14</div>
+        <div class="tl-city">Bangkok</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title"><span data-it>Rientro</span><span data-en>Return</span></div>
+        <div class="tl-desc">
+          <span data-it>Trasferimento a Bangkok per i voli di rientro il 9 gennaio. Ultimo giro al mercato, ultimi pad thai, ultimi ricordi.</span>
+          <span data-en>Transfer to Bangkok for return flights on January 9th. One last market, one last pad thai, one last memory.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="nye-banner">
+  <div class="nye-icon">🎆</div>
+  <h2><span data-it>Capodanno tra le isole</span><span data-en>New Year's Eve among the islands</span></h2>
+  <p style="margin-top:16px">
+    <span data-it>Il 31 dicembre saremo sulle isole. Cielo pieno di stelle, musica sulla spiaggia, brindisi con i piedi nella sabbia. Questo è il momento clou del viaggio.</span>
+    <span data-en>On December 31st we'll be on the islands. Sky full of stars, music on the beach, toasting with our feet in the sand. This is the highlight of the trip.</span>
+  </p>
+</div>
+
+<section id="practical" class="practical">
+  <div class="section-label"><span data-it>Info pratiche</span><span data-en>Practical info</span></div>
+  <h2><span data-it>Tutto quello che <em>serve sapere</em></span><span data-en>Everything you <em>need to know</em></span></h2>
+  <div class="practical-grid">
+
+    <div class="prac-block">
+      <div class="prac-title">✈️ <span data-it>Voli</span><span data-en>Flights</span></div>
+      <ul class="prac-list">
+        <li><span data-it>Ognuno prenota il proprio volo</span><span data-en>Everyone books their own flights</span></li>
+        <li><span data-it>Destinazione: Bangkok Suvarnabhumi (BKK)</span><span data-en>Destination: Bangkok Suvarnabhumi (BKK)</span></li>
+        <li><span data-it>Partenza: 26 dicembre / Ritorno: 9 gennaio</span><span data-en>Departure: 26 Dec / Return: 9 Jan</span></li>
+        <li><span data-it>Stima attuale: €900–1.100 a/r</span><span data-en>Current estimate: €900–1,100 return</span></li>
+        <li><span data-it>Prenotate subito — i prezzi salgono</span><span data-en>Book now — prices are rising</span></li>
+        <li><span data-it>Cercate su <a href="https://www.skyscanner.it" target="_blank" style="color:var(--gold)">Skyscanner</a></span><span data-en>Search on <a href="https://www.skyscanner.net" target="_blank" style="color:var(--gold)">Skyscanner</a></span></li>
+      </ul>
+    </div>
+
+    <div class="prac-block">
+      <div class="prac-title">🛂 <span data-it>Visto e documenti</span><span data-en>Visa & documents</span></div>
+      <ul class="prac-list">
+        <li><span data-it>Cittadini UE: ingresso gratuito 60 giorni</span><span data-en>EU citizens: free entry 60 days</span></li>
+        <li><span data-it>Passaporto valido almeno 6 mesi dopo il rientro</span><span data-en>Passport valid at least 6 months after return</span></li>
+        <li><span data-it>Nessun visto necessario</span><span data-en>No visa required</span></li>
+        <li><span data-it>Fotocopia del passaporto come backup</span><span data-en>Photocopy of passport as backup</span></li>
+      </ul>
+    </div>
+
+    <div class="prac-block">
+      <div class="prac-title">🏥 <span data-it>Salute e vaccini</span><span data-en>Health & vaccines</span></div>
+      <ul class="prac-list">
+        <li><span data-it>Nessun vaccino obbligatorio</span><span data-en>No mandatory vaccines</span></li>
+        <li><span data-it>Consigliati: epatite A, tifoidea, tetano</span><span data-en>Recommended: hep A, typhoid, tetanus</span></li>
+        <li><span data-it>Dicembre = stagione secca, rischio basso</span><span data-en>December = dry season, low risk</span></li>
+        <li><span data-it>Farmacia di base personale consigliata</span><span data-en>Personal basic pharmacy recommended</span></li>
+      </ul>
+    </div>
+
+    <div class="prac-block">
+      <div class="prac-title">📱 <span data-it>Connessione e soldi</span><span data-en>Connectivity & money</span></div>
+      <ul class="prac-list">
+        <li><span data-it>SIM locale all'aeroporto: ~€10 per 15 giorni illimitati</span><span data-en>Local SIM at airport: ~€10 for 15 days unlimited</span></li>
+        <li><span data-it>Valuta: Baht thai (THB). 1€ ≈ 38 THB</span><span data-en>Currency: Thai Baht (THB). €1 ≈ 38 THB</span></li>
+        <li><span data-it>Bancomat disponibili ovunque (commissione ~€5)</span><span data-en>ATMs everywhere (fee ~€5 per withdrawal)</span></li>
+        <li><span data-it>Portate contante per mercati e longtail boat</span><span data-en>Bring cash for markets and longtail boats</span></li>
+        <li><span data-it>Wise o Revolut consigliati per cambiare</span><span data-en>Wise or Revolut recommended for exchange</span></li>
+      </ul>
+    </div>
+
+    <div class="prac-block">
+      <div class="prac-title">☀️ <span data-it>Clima a dicembre</span><span data-en>December weather</span></div>
+      <ul class="prac-list">
+        <li><span data-it>Bangkok: 28–32°C, soleggiato</span><span data-en>Bangkok: 28–32°C, sunny</span></li>
+        <li><span data-it>Chiang Mai: 18–28°C, notti fresche</span><span data-en>Chiang Mai: 18–28°C, cool evenings</span></li>
+        <li><span data-it>Isole: 27–31°C, mare calmo, zero piogge</span><span data-en>Islands: 27–31°C, calm sea, no rain</span></li>
+        <li><span data-it>È la stagione migliore in assoluto</span><span data-en>It is simply the best season</span></li>
+      </ul>
+    </div>
+
+    <div class="prac-block">
+      <div class="prac-title">🙏 <span data-it>Cultura e rispetto</span><span data-en>Culture & respect</span></div>
+      <ul class="prac-list">
+        <li><span data-it>Nei templi: spalle e ginocchia coperte</span><span data-en>In temples: shoulders and knees covered</span></li>
+        <li><span data-it>Mai toccare la testa di qualcuno</span><span data-en>Never touch someone's head</span></li>
+        <li><span data-it>Non puntare i piedi verso statue o persone</span><span data-en>Don't point feet at statues or people</span></li>
+        <li><span data-it>Il sorriso tailandese è la lingua universale</span><span data-en>The Thai smile is the universal language</span></li>
+        <li><span data-it>Michelle vi spiegherà tutto in loco</span><span data-en>Michelle will explain everything on the ground</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="packing" class="packing">
+  <div class="section-label"><span data-it>Cosa mettere in valigia</span><span data-en>What to pack</span></div>
+  <h2><span data-it>La lista <em>definitiva</em></span><span data-en>The <em>definitive</em> packing list</span></h2>
+  <div class="pack-grid">
+
+    <div class="pack-cat">
+      <div class="pack-cat-title">👗 <span data-it>Abbigliamento</span><span data-en>Clothing</span></div>
+      <ul class="pack-items">
+        <li><span data-it>Top leggeri in lino o cotone (7+)</span><span data-en>Light linen or cotton tops (7+)</span></li>
+        <li><span data-it>Pantaloni leggeri / shorts (3–4)</span><span data-en>Light trousers / shorts (3–4)</span></li>
+        <li><span data-it>Vestito/gonna per i templi (copre ginocchia)</span><span data-en>Dress/skirt for temples (covers knees)</span></li>
+        <li><span data-it>Cardigan o felpa per Chiang Mai (notti fresche)</span><span data-en>Cardigan or light hoodie for Chiang Mai</span></li>
+        <li><span data-it>Costume da bagno (2 pezzi)</span><span data-en>Swimwear (2 pieces)</span></li>
+        <li><span data-it>Un outfit carino per Capodanno</span><span data-en>One nice outfit for New Year's Eve</span></li>
+        <li><span data-it>Biancheria (non serve portarne molta, si lava)</span><span data-en>Underwear (laundry is cheap and easy)</span></li>
+      </ul>
+    </div>
+
+    <div class="pack-cat">
+      <div class="pack-cat-title">👟 <span data-it>Scarpe</span><span data-en>Footwear</span></div>
+      <ul class="pack-items">
+        <li><span data-it>Sandali comodi da camminata</span><span data-en>Comfortable walking sandals</span></li>
+        <li><span data-it>Infradito per spiaggia e templi</span><span data-en>Flip flops for beach & temples</span></li>
+        <li><span data-it>Scarpe da trekking leggere (Pai)</span><span data-en>Light trekking shoes (for Pai)</span></li>
+        <li><span data-it>Evitate tacchi — inutili</span><span data-en>Avoid heels — completely useless</span></li>
+      </ul>
+    </div>
+
+    <div class="pack-cat">
+      <div class="pack-cat-title">🧴 <span data-it>Salute e bellezza</span><span data-en>Health & beauty</span></div>
+      <ul class="pack-items">
+        <li><span data-it>Crema solare SPF50+ (molta)</span><span data-en>Sunscreen SPF50+ (lots of it)</span></li>
+        <li><span data-it>Antidiarroico (es. Imodium)</span><span data-en>Anti-diarrheal (e.g. Imodium)</span></li>
+        <li><span data-it>Antidolorifico / antifebbre</span><span data-en>Painkiller / fever reducer</span></li>
+        <li><span data-it>Cerotti e disinfettante</span><span data-en>Plasters and antiseptic</span></li>
+        <li><span data-it>Antiallergico (utile ovunque)</span><span data-en>Antihistamine (always useful)</span></li>
+        <li><span data-it>Shampoo / sapone (pochi — si trova tutto)</span><span data-en>Shampoo/soap (minimal — available everywhere)</span></li>
+      </ul>
+    </div>
+
+    <div class="pack-cat">
+      <div class="pack-cat-title">🎒 <span data-it>Accessori</span><span data-en>Accessories</span></div>
+      <ul class="pack-items">
+        <li><span data-it>Zaino da giorno leggero</span><span data-en>Light daypack</span></li>
+        <li><span data-it>Borsa impermeabile (per le barche)</span><span data-en>Waterproof bag (for boat trips)</span></li>
+        <li><span data-it>Occhiali da sole</span><span data-en>Sunglasses</span></li>
+        <li><span data-it>Cappello o bandana</span><span data-en>Hat or bandana</span></li>
+        <li><span data-it>Adattatore universale</span><span data-en>Universal power adapter</span></li>
+        <li><span data-it>Powerbank</span><span data-en>Powerbank</span></li>
+        <li><span data-it>Lucchetto piccolo per lo zaino</span><span data-en>Small padlock for your bag</span></li>
+      </ul>
+    </div>
+
+    <div class="pack-cat">
+      <div class="pack-cat-title">📷 Tech</div>
+      <ul class="pack-items">
+        <li><span data-it>Telefono + cavo di ricarica</span><span data-en>Phone + charging cable</span></li>
+        <li><span data-it>Fotocamera (opzionale ma consigliata)</span><span data-en>Camera (optional but recommended)</span></li>
+        <li><span data-it>Auricolari</span><span data-en>Earphones</span></li>
+        <li><span data-it>SIM locale all'aeroporto di Bangkok</span><span data-en>Local SIM at Bangkok airport</span></li>
+        <li><span data-it>Scaricate mappe offline (Maps.me)</span><span data-en>Download offline maps (Maps.me)</span></li>
+        <li><span data-it>Scaricate Bolt (il taxi app locale)</span><span data-en>Download Bolt (the local taxi app)</span></li>
+      </ul>
+    </div>
+
+    <div class="pack-cat">
+      <div class="pack-cat-title">📄 <span data-it>Documenti</span><span data-en>Documents</span></div>
+      <ul class="pack-items">
+        <li><span data-it>Passaporto originale (valido 6+ mesi)</span><span data-en>Original passport (valid 6+ months)</span></li>
+        <li><span data-it>Fotocopia passaporto in valigia</span><span data-en>Passport photocopy in luggage</span></li>
+        <li><span data-it>Assicurazione viaggio stampata</span><span data-en>Printed travel insurance</span></li>
+        <li><span data-it>Prenotazione volo sul telefono</span><span data-en>Flight booking on your phone</span></li>
+        <li><span data-it>Carta di credito internazionale</span><span data-en>International credit card</span></li>
+        <li><span data-it>Qualche euro in contanti come backup</span><span data-en>Some euros in cash as backup</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="costs" class="costs">
+  <div class="section-label"><span data-it>Budget</span><span data-en>Budget</span></div>
+  <h2><span data-it><em>Costi</em> del viaggio</span><span data-en>Trip <em>costs</em></span></h2>
+  <table class="costs-table">
+    <thead>
+      <tr>
+        <th><span data-it>Voce</span><span data-en>Item</span></th>
+        <th><span data-it>Incluso nel contributo?</span><span data-en>Included in contribution?</span></th>
+        <th><span data-it>Stima a persona</span><span data-en>Estimate per person</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span data-it>Hotel (14 notti boutique)</span><span data-en>Hotels (14 nights boutique)</span></td><td>✅</td><td class="amt">~€600</td></tr>
+      <tr><td><span data-it>Trasporti interni (van, voli, barche)</span><span data-en>Internal transport (van, flights, boats)</span></td><td>✅</td><td class="amt">~€250</td></tr>
+      <tr><td><span data-it>Attività (elefanti, cooking class, snorkeling)</span><span data-en>Activities (elephants, cooking class, snorkelling)</span></td><td>✅</td><td class="amt">~€150</td></tr>
+      <tr><td><span data-it>Pasti (la maggior parte)</span><span data-en>Meals (most of them)</span></td><td>✅</td><td class="amt">~€200</td></tr>
+      <tr><td><span data-it>Volo internazionale Milano–Bangkok</span><span data-en>International flight Milan–Bangkok</span></td><td>❌</td><td class="amt">€900–1.100</td></tr>
+      <tr><td><span data-it>Assicurazione viaggio</span><span data-en>Travel insurance</span></td><td>❌</td><td class="amt">~€80</td></tr>
+      <tr><td><span data-it>Spese personali / shopping</span><span data-en>Personal expenses / shopping</span></td><td>❌</td><td class="amt">~€200–400</td></tr>
+      <tr>
+        <td><strong><span data-it>Contributo viaggio (da versare a Michelle)</span><span data-en>Trip contribution (to Michelle)</span></strong></td>
+        <td>—</td>
+        <td class="amt" style="font-size:22px;color:var(--deep)"><strong>~€1.200–1.500</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="costs-note">
+    <span data-it>* I prezzi sono stime basate su un gruppo di 8–10 persone. Il contributo finale verrà comunicato non appena Michelle avrà le conferme di tutti e potrà fare le prenotazioni definitive. È richiesto un acconto di €300 per bloccare il posto.</span>
+    <span data-en>* Prices are estimates based on a group of 8–10 people. The final contribution will be confirmed once Michelle has everyone's confirmation and can make definitive bookings. A €300 deposit is required to hold your spot.</span>
+  </p>
+</section>
+
+<section id="calendar" class="calendar-section">
+  <div class="section-label" style="color:var(--gold)"><span data-it>Giorno per giorno</span><span data-en>Day by day</span></div>
+  <h2><span data-it>Il <em>calendario</em></span><span data-en>The <em>calendar</em></span></h2>
+
+  <div class="cal-grid">
+    <!-- HEADERS -->
+    <div class="cal-header"><span data-it>Lun</span><span data-en>Mon</span></div>
+    <div class="cal-header"><span data-it>Mar</span><span data-en>Tue</span></div>
+    <div class="cal-header"><span data-it>Mer</span><span data-en>Wed</span></div>
+    <div class="cal-header"><span data-it>Gio</span><span data-en>Thu</span></div>
+    <div class="cal-header"><span data-it>Ven</span><span data-en>Fri</span></div>
+    <div class="cal-header"><span data-it>Sab</span><span data-en>Sat</span></div>
+    <div class="cal-header"><span data-it>Dom</span><span data-en>Sun</span></div>
+
+    <div class="cal-month-label">Dicembre 2026</div>
+
+    <div class="cal-day empty"></div><!-- Mon padding -->
+    <div class="cal-day empty"><div class="cal-num">1</div></div>
+    <div class="cal-day empty"><div class="cal-num">2</div></div>
+    <div class="cal-day empty"><div class="cal-num">3</div></div>
+    <div class="cal-day empty"><div class="cal-num">4</div></div>
+    <div class="cal-day empty"><div class="cal-num">5</div></div>
+    <div class="cal-day empty"><div class="cal-num">6</div></div>
+
+    <div class="cal-day empty"><div class="cal-num">7</div></div>
+    <div class="cal-day empty"><div class="cal-num">8</div></div>
+    <div class="cal-day empty"><div class="cal-num">9</div></div>
+    <div class="cal-day empty"><div class="cal-num">10</div></div>
+    <div class="cal-day empty"><div class="cal-num">11</div></div>
+    <div class="cal-day empty"><div class="cal-num">12</div></div>
+    <div class="cal-day empty"><div class="cal-num">13</div></div>
+
+    <div class="cal-day empty"><div class="cal-num">14</div></div>
+    <div class="cal-day empty"><div class="cal-num">15</div></div>
+    <div class="cal-day empty"><div class="cal-num">16</div></div>
+    <div class="cal-day empty"><div class="cal-num">17</div></div>
+    <div class="cal-day empty"><div class="cal-num">18</div></div>
+    <div class="cal-day empty"><div class="cal-num">19</div></div>
+    <div class="cal-day empty"><div class="cal-num">20</div></div>
+
+    <!-- Dec 21 Mon -->
+    <div class="cal-day empty"><div class="cal-num">21</div></div>
+    <div class="cal-day empty"><div class="cal-num">22</div></div>
+    <div class="cal-day empty"><div class="cal-num">23</div></div>
+    <div class="cal-day empty"><div class="cal-num">24</div></div>
+    <div class="cal-day empty"><div class="cal-num">25</div></div>
+    <!-- Dec 26 = Saturday ✈️ -->
+    <div class="cal-day"><div class="cal-num">26</div><div class="cal-event fly">✈️ <span data-it>Partenza</span><span data-en>Depart</span></div><div class="cal-event bkk">Bangkok</div></div>
+    <!-- Dec 27 = Sunday -->
+    <div class="cal-day"><div class="cal-num">27</div><div class="cal-event bkk">Bangkok</div></div>
+
+    <!-- Dec 28 Mon -->
+    <div class="cal-day"><div class="cal-num">28</div><div class="cal-event ayu">Ayutthaya</div></div>
+    <!-- Dec 29 Tue -->
+    <div class="cal-day"><div class="cal-num">29</div><div class="cal-event fly">✈️ BKK→CNX</div><div class="cal-event cnx">Chiang Mai</div></div>
+    <!-- Dec 30 Wed -->
+    <div class="cal-day"><div class="cal-num">30</div><div class="cal-event cnx">Chiang Mai</div></div>
+    <!-- Dec 31 Thu = NYE → fly south, arrive islands -->
+    <div class="cal-day" style="outline:1px solid rgba(201,152,74,0.5)"><div class="cal-num" style="color:var(--gold)">31 🎆</div><div class="cal-event fly">✈️ → <span data-it>Isole</span><span data-en>Islands</span></div><div class="cal-event isl">NYE 🥂</div></div>
+    <!-- Jan 1 Fri -->
+
+    <!-- JANUARY 2027: Jan 1 = Friday -->
+    <div class="cal-month-label">Gennaio 2027</div>
+
+    <!-- Mon-Thu padding (Jan 1 = Fri) -->
+    <div class="cal-day empty"></div>
+    <div class="cal-day empty"></div>
+    <div class="cal-day empty"></div>
+    <div class="cal-day empty"></div>
+    <!-- Jan 1 = Fri -->
+    <div class="cal-day"><div class="cal-num">1</div><div class="cal-event isl">Koh Yao Noi</div></div>
+    <!-- Jan 2 = Sat -->
+    <div class="cal-day"><div class="cal-num">2</div><div class="cal-event isl">Koh Yao Noi</div></div>
+    <!-- Jan 3 = Sun -->
+    <div class="cal-day"><div class="cal-num">3</div><div class="cal-event isl">Koh Yao Noi</div></div>
+
+    <!-- Jan 4 Mon -->
+    <div class="cal-day"><div class="cal-num">4</div><div class="cal-event isl">🌊 Koh Phi Phi</div></div>
+    <div class="cal-day"><div class="cal-num">5</div><div class="cal-event isl">Koh Yao Noi</div></div>
+    <div class="cal-day"><div class="cal-num">6</div><div class="cal-event fly">→ Railay</div><div class="cal-event rai">Railay</div></div>
+    <div class="cal-day"><div class="cal-num">7</div><div class="cal-event rai">Railay</div></div>
+    <div class="cal-day"><div class="cal-num">8</div><div class="cal-event fly">✈️ → BKK</div></div>
+    <!-- Jan 9 = Sat = return -->
+    <div class="cal-day"><div class="cal-num">9</div><div class="cal-event fly" style="color:var(--gold)">✈️ <span data-it>Rientro</span><span data-en>Return</span></div></div>
+    <div class="cal-day empty"><div class="cal-num" style="color:#3A3020">10</div></div>
+
+    <!-- Jan 11 Mon - padding -->
+    <div class="cal-day empty"><div class="cal-num" style="color:#3A3020">11</div></div>
+    <div class="cal-day empty"><div class="cal-num" style="color:#3A3020">12</div></div>
+    <div class="cal-day empty"><div class="cal-num" style="color:#3A3020">13</div></div>
+    <div class="cal-day empty"><div class="cal-num" style="color:#3A3020">14</div></div>
+    <div class="cal-day empty"></div>
+    <div class="cal-day empty"></div>
+    <div class="cal-day empty"></div>
+  </div>
+
+  <div class="cal-legend">
+    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#C9984A"></div>Bangkok</div>
+    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#9AB08A"></div>Ayutthaya</div>
+    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#D4A088"></div>Chiang Mai</div>
+    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#88AACC"></div>Pai</div>
+    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#60C0A0"></div>Koh Yao Noi / Koh Phi Phi</div>
+    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#D088C0"></div>Railay</div>
+  </div>
+</section>
+
+<section id="map" style="padding:100px 80px;background:var(--deep)">
+  <div class="section-label" style="color:var(--gold)"><span data-it>Il percorso</span><span data-en>The route</span></div>
+  <h2 style="color:var(--gold-l);margin-bottom:40px"><span data-it>Le <em>destinazioni</em></span><span data-en>The <em>destinations</em></span></h2>
+  <div id="trip-map" style="width:100%;height:500px;border-radius:8px;overflow:hidden;border:1px solid rgba(201,152,74,0.2)"></div>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
+    <div class="chip">1 · Bangkok</div>
+    <div class="chip">2 · Ayutthaya</div>
+    <div class="chip">3 · Chiang Mai</div>
+    <div class="chip">4 · Pai</div>
+    <div class="chip">5 · Koh Yao Noi</div>
+    <div class="chip">6 · Koh Phi Phi</div>
+    <div class="chip">7 · Railay</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Thailand with Michelle</div>
+  <p>🇹🇭 26 dic 2026 – 9 gen 2027</p>
+  <p style="font-size:12px;color:#3A3020"><span data-it>Domande? Scrivi a Michelle su WhatsApp</span><span data-en>Questions? Message Michelle on WhatsApp</span></p>
+</footer>
+
+<script>
+function setLang(lang){
+  document.body.className='lang-'+lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.lang-btn[onclick*="\''+lang+'\'"]').classList.add('active');
+}
+
+function initMap() {
+  const stops = [
+    { name: 'Bangkok',     lat: 13.7563,  lng: 100.5018, day: 'Giorni 1–2' },
+    { name: 'Ayutthaya',   lat: 14.3692,  lng: 100.5877, day: 'Giorno 3' },
+    { name: 'Chiang Mai',  lat: 18.7883,  lng: 98.9853,  day: 'Giorni 4–5' },
+    { name: 'Pai',         lat: 19.3589,  lng: 98.4390,  day: 'Giorno 6' },
+    { name: 'Koh Yao Noi', lat: 8.1173,   lng: 98.5932,  day: 'Giorni 7–11' },
+    { name: 'Koh Phi Phi', lat: 7.7407,   lng: 98.7784,  day: 'Gita di un giorno' },
+    { name: 'Railay',      lat: 8.0117,   lng: 98.8378,  day: 'Giorni 12–13' },
+  ];
+
+  const map = new google.maps.Map(document.getElementById('trip-map'), {
+    center: { lat: 13, lng: 100.5 },
+    zoom: 5,
+    styles: [
+      { elementType: 'geometry', stylers: [{ color: '#1a1208' }] },
+      { elementType: 'labels.text.stroke', stylers: [{ color: '#1a1208' }] },
+      { elementType: 'labels.text.fill', stylers: [{ color: '#c9984a' }] },
+      { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#0d1b2a' }] },
+      { featureType: 'road', stylers: [{ visibility: 'off' }] },
+      { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{ color: '#c9984a', weight: 0.5 }] },
+      { featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{ color: '#edd9a3' }] },
+    ],
+    disableDefaultUI: true,
+    zoomControl: true,
+  });
+
+  const path = stops.map(s => ({ lat: s.lat, lng: s.lng }));
+  new google.maps.Polyline({
+    path,
+    geodesic: true,
+    strokeColor: '#C9984A',
+    strokeOpacity: 0.5,
+    strokeWeight: 2,
+    map,
+  });
+
+  stops.forEach((stop, i) => {
+    const marker = new google.maps.Marker({
+      position: { lat: stop.lat, lng: stop.lng },
+      map,
+      title: stop.name,
+      label: {
+        text: String(i + 1),
+        color: '#1a1208',
+        fontWeight: 'bold',
+        fontSize: '12px',
+      },
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: 16,
+        fillColor: '#C9984A',
+        fillOpacity: 1,
+        strokeColor: '#EDD9A3',
+        strokeWeight: 1.5,
+      },
+    });
+
+    const infoWindow = new google.maps.InfoWindow({
+      content: `<div style="font-family:sans-serif;padding:4px 8px;background:#1a1208;color:#edd9a3;border-radius:4px"><strong>${stop.name}</strong><br><span style="font-size:11px;color:#c9984a">${stop.day}</span></div>`,
+    });
+
+    marker.addListener('click', () => infoWindow.open(map, marker));
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&callback=initMap" async defer></script>
+</body>
+</html>
